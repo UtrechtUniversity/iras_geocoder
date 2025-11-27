@@ -7,7 +7,6 @@ input_csv = r"path/to/addresses/.csv" #path to csv
 output_csv = r"path/to/output/.csv"
 delimiter = ';' #define delimiter that is used in csv file
 df = pd.read_csv(input_csv, sep = delimiter) #read csv into dataframe
-df["huisnummer"]
 postcode_column = 'postcode' #name of postal code column in csv
 housenumber_column = 'hsn_number' #name of housenumber column in csv
 houseletter_column = 'hsn_letter' #None if doesn't exist
