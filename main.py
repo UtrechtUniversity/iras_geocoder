@@ -3,13 +3,13 @@ import pandas as pd
 import re
 from datetime import datetime
 
-input_csv = r"path/to/addresses/.csv" #path to csv
-output_csv = r"path/to/output/.csv"
+input_csv = r"O:\DGK\IRAS\EEPI\Privacy\GIS\UL_panelstudie\adressen_actieve_deelnemers\panel_actieve_deelnemers_20251126.csv" #path to csv
+output_csv = r"O:\DGK\IRAS\EEPI\Privacy\GIS\UL_panelstudie\adressen_actieve_deelnemers\v2\panel_actieve_deelnemers_20251126_geocoded.csv"
 delimiter = ';' #define delimiter that is used in csv file
 df = pd.read_csv(input_csv, sep = delimiter) #read csv into dataframe
 postcode_column = 'postcode' #name of postal code column in csv
-housenumber_column = 'hsn_number' #name of housenumber column in csv
-houseletter_column = 'hsn_letter' #None if doesn't exist
+housenumber_column = 'huisnummer' #name of housenumber column in csv
+houseletter_column = 'huisnummer_toev' #None if doesn't exist
 houseaddition_column = None #None if doesnt exist
 
 
@@ -22,7 +22,10 @@ start_time = datetime.now()
 for index,row in df.iterrows():
     count += 1
     postcode = row[postcode_column]
-    postcode = postcode.replace(" ", "")
+    try:
+        postcode = postcode.replace(" ", "")
+    except:
+        print(f'invalid postcode {postcode}')
 
     #try housenumber conversion to integer, else look for address without housenumber
     try: housenumber = int(row[housenumber_column])
