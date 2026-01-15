@@ -24,7 +24,6 @@ for index,row in df.iterrows():
     postcode = row[postcode_column]
     postcode = postcode.replace(" ", "")
 
-    
     #try housenumber conversion to integer, else look for address without housenumber
     try: housenumber = int(row[housenumber_column])
     except: housenumber = None #set housenumber to "None" so the address search will not return results and coordinates will be set to "Not found"
