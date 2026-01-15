@@ -22,6 +22,8 @@ start_time = datetime.now()
 for index,row in df.iterrows():
     count += 1
     postcode = row[postcode_column]
+    postcode = postcode.replace(" ", "")
+
     
     #try housenumber conversion to integer, else look for address without housenumber
     try: housenumber = int(row[housenumber_column])
