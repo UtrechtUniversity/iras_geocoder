@@ -8,8 +8,8 @@ output_csv = r"O:\DGK\IRAS\EEPI\Privacy\GIS\UL_panelstudie\adressen_actieve_deel
 delimiter = ';' #define delimiter that is used in csv file
 df = pd.read_csv(input_csv, sep = delimiter) #read csv into dataframe
 postcode_column = 'postcode' #name of postal code column in csv
-housenumber_column = 'huisnummer' #name of housenumber column in csv
-houseletter_column = 'huisnummer_toev' #None if doesn't exist
+housenumber_column = 'hsn' #name of housenumber column in csv
+houseletter_column = 'hsn_toev' #None if doesn't exist
 houseaddition_column = None #None if doesnt exist
 
 
